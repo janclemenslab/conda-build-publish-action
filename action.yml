@@ -1,6 +1,6 @@
 name: 'Publish Conda package to Anaconda.org'
 description: 'Build and Publish conda package to Anaconda'
-author: 'Andrew Prokhorenkov, modified by Maxime Borry'
+author: 'Andrew Prokhorenkov, modified by Maxime Borry, modified by Jan Clemens'
 branding:
   icon: 'package'  
   color: 'purple'
@@ -10,6 +10,11 @@ inputs:
     default: '.'
   AnacondaToken:
     description: 'Anaconda access Token'
+  AnacondaUSER:
+    description: 'Anaconda user'
+  pyver:
+    description: 'Python version build target'
+    default: '3.9'
 runs:
   using: 'docker'
   image: 'Dockerfile'
