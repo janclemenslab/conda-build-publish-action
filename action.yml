@@ -5,14 +5,14 @@ branding:
   icon: 'package'  
   color: 'purple'
 inputs: 
-  subDir:
+  recipe_directory:
     description: 'Sub-directory with conda recipe'
     default: '.'
-  AnacondaToken:
+  anaconda_token:
     description: 'Anaconda access Token'
-  AnacondaUSER:
+  anaconda_user:
     description: 'Anaconda user'
-  pyver:
+  python_version:
     description: 'Python version build target'
     default: '3.9'
 runs:
