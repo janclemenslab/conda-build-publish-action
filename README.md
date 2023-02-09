@@ -13,14 +13,21 @@ on:
     
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: False
+      matrix:
+        python-version: [3.9, '3.10']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v1
     - name: publish-to-conda
-      uses: maxibor/conda-package-publish-action@v1.1
+      uses: janclemenslab/conda-build-publish-action
       with:
-        subDir: 'conda'
+        subDir: 'conda/das'
         AnacondaToken: ${{ secrets.ANACONDA_TOKEN }}
+        AnacondaUser: ncb
+        pyver: ${{ matrix.python-version }}
 ```
 
 ### Example project structure
@@ -33,8 +40,9 @@ jobs:
 │   ├── __init__.py
 │   └── myproject.py
 ├── conda
-│   ├── build.sh
-│   └── meta.yaml
+│   └── das
+│       ├── build.sh
+│       └── meta.yaml
 ├── .github
 │   └── workflows
 │       └── publish_conda.yml
