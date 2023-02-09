@@ -4,8 +4,8 @@ set -ex
 set -o pipefail
 
 go_to_build_dir() {
-    if [ ! -z $INPUT_SUBDIR ]; then
-        cd $INPUT_SUBDIR
+    if [ ! -z $INPUT_RECIPE_DIRECTORY ]; then
+        cd $INPUT_RECIPE_DIRECTORY
     fi
 }
 
@@ -17,7 +17,7 @@ check_if_meta_yaml_file_exists() {
 }
 
 build_package(){
-    conda build . -c conda-forge -c ncb -c anaconda --python $INPUT_PYVER --user $INPUT_ANACONDAUSER --token $INPUT_ANACONDATOKEN
+    conda build . -c conda-forge -c ncb -c anaconda --python $INPUT_PYTHON_VERSION --user $INPUT_ANACONDA_USER --token $INPUT_ANACONDA_TOKEN
 
 go_to_build_dir
 check_if_meta_yaml_file_exists
