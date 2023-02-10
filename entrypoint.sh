@@ -18,6 +18,7 @@ check_if_meta_yaml_file_exists() {
 
 build_package(){
     conda build . -c conda-forge -c ncb -c anaconda --python $INPUT_PYTHON_VERSION --user $INPUT_ANACONDA_USER --token $INPUT_ANACONDA_TOKEN
+}
 
 go_to_build_dir
 check_if_meta_yaml_file_exists
