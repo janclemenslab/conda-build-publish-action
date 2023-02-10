@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.7.10
+FROM continuumio/miniconda3:22.9.0-3
 
 LABEL "repository"="https://github.com/janclemenslab/conda-build-publish-action"
 LABEL "maintainer"="Jan Clemens"
